@@ -35,6 +35,7 @@ func (lb *LeakyBucket) Allow() bool {
 		fmt.Printf("Leaking %d requests\n", leaked)
 
 		lb.queue -= leaked
+		// jika leak kurang dari 0, set ke 0
 		if lb.queue < 0 {
 			lb.queue = 0
 		}
@@ -63,7 +64,7 @@ func main() {
 		} else {
 			fmt.Println("Request denied [x]")
 		}
-		time.Sleep(200 * time.Millisecond)
+		time.Sleep(100 * time.Millisecond)
 		counter++
 		fmt.Println("========================")
 	}

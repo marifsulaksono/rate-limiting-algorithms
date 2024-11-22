@@ -49,9 +49,8 @@ func (fwc *FixedWindowCounter) Allow() bool {
 func main() {
 	fwc := NewFixedWindowCounter(7, 10*time.Second)
 	counter := 1
-	time.Sleep(1 * time.Second)
 
-	for i := 0; i < 10; i++ {
+	for i := 0; i < 12; i++ {
 		fmt.Printf("[%v] New incoming request %d with algorithm: fixed window counter\n", time.Now().Format("2006-01-02 15:04:05.999999"), counter)
 		if fwc.Allow() {
 			fmt.Println("Request allowed [v]")
