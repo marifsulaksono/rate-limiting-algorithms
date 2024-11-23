@@ -24,8 +24,8 @@ func NewFixedWindowCounter(limit int, windowSize time.Duration) *FixedWindowCoun
 }
 
 func (fwc *FixedWindowCounter) Allow() bool {
-	// fwc.mu.Lock()
-	// defer fwc.mu.Unlock()
+	fwc.mu.Lock()
+	defer fwc.mu.Unlock()
 
 	now := time.Now()
 
