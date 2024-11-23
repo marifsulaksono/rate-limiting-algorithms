@@ -54,7 +54,7 @@ func (lb *LeakyBucket) Allow() bool {
 }
 
 func main() {
-	lb := NewLeakyBucket(5, 2)
+	lb := NewLeakyBucket(5, 2) // rate bocorkan request sejumlah 2, kapasitas bucket 5
 	counter := 1
 
 	for i := 0; i < 20; i++ {

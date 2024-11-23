@@ -49,7 +49,7 @@ func (tb *TokenBucket) Allow() bool {
 }
 
 func main() {
-	tb := NewTokenBucket(2, 5)
+	tb := NewTokenBucket(2, 5) // rate refill token ke dalam bucket sejumlah 2, maximum token 5
 	counter := 1
 
 	for i := 0; i < 20; i++ {

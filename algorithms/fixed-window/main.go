@@ -24,8 +24,8 @@ func NewFixedWindowCounter(limit int, windowSize time.Duration) *FixedWindowCoun
 }
 
 func (fwc *FixedWindowCounter) Allow() bool {
-	fwc.mu.Lock()
-	defer fwc.mu.Unlock()
+	// fwc.mu.Lock()
+	// defer fwc.mu.Unlock()
 
 	now := time.Now()
 
@@ -47,7 +47,7 @@ func (fwc *FixedWindowCounter) Allow() bool {
 }
 
 func main() {
-	fwc := NewFixedWindowCounter(7, 10*time.Second)
+	fwc := NewFixedWindowCounter(7, 10*time.Second) // limit request dalam jendela waktu 7, jendela waktu 10 detik
 	counter := 1
 
 	for i := 0; i < 12; i++ {

@@ -51,7 +51,7 @@ func (swl *SlidingWindowLogs) Allow() bool {
 }
 
 func main() {
-	swl := NewSlidingWindowLogs(3, 5*time.Second)
+	swl := NewSlidingWindowLogs(3, 5*time.Second) // limit request dalam jendela waktu 3, jendela waktu 5 detik
 	counter := 1
 
 	for i := 0; i < 20; i++ {
